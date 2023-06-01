@@ -1,15 +1,35 @@
 import locale
 import user_interface as ui
 import file_handling as fh
+import output_notes as on
+import searching as sc
 
 
 def main():
     locale.setlocale(locale.LC_ALL, '')
 
-    choice_code = 1
-    while (choice_code != 0):
-        notes_db = fh.read_notes()
-        choice_code = ui.user_choice(notes_db)
+    quit_code = 1
+    notes_db = fh.read_notes()
+    while (quit_code != 0):
+        string = input(
+            '\nВведите команду. Например слово "справка": ').strip().lower()
+        if string in ('справка', 'помощь', 'wtf', 'help', 'h', '?'):
+            ui.help()
+        elif string in ('добавить', 'add', 'новая запись', 'a'):
+            notes_db = ui.add_note(notes_db)
+        elif string in ('список', 'print all', 'все', 'all', 'p'):
+            on.print_all(notes_db)
+        elif string in ('найти', 'search', 'где она', 's', 'find', 'f'):
+            sc.search(notes_db)
+        elif string in ('редактировать', 'edit', 'e'):
+            notes_db = ui.edit_note(notes_db)
+        elif string in ('удалить', 'delete', 'del', 'erase', 'kill', 'd'):
+            notes_db = ui.delete_note(notes_db)
+        elif string in ('выход', 'выйти', 'quit', 'й', 'q', 'exit', 'авада кедавра'):
+            print("\nРабота завершена.")
+            quit_code = 0
+        else:
+            print('\nОчень жаль, но ничего непонятно. Попробуйте ещё раз.')
     fh.store_notes(notes_db)
 
 

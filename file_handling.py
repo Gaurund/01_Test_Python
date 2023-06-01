@@ -9,7 +9,7 @@ def store_notes(dictionary):
         dump(dictionary, file)
 
 
-def read_notes():  # Считывание
+def read_notes():
     if not path.exists(FILE_NAME):
         dictionary = dict()
     else:

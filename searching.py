@@ -22,7 +22,7 @@ def search_id(dictionary):
         print()
         on.print_note(note_id, dictionary[note_id])
     else:
-        print('Nope')
+        print('\nЗаписи с таким номером нет.\n')
 
 
 def search_text(dictionary):
