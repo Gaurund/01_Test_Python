@@ -1,6 +1,6 @@
 import locale
 import user_interface as ui
-import filehandling as fh
+import file_handling as fh
 
 
 def main():

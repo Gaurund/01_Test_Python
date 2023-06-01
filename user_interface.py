@@ -1,6 +1,6 @@
 from time import gmtime
 import searching as sc
-import filehandling as fh
+import file_handling as fh
 import output_notes as on
 
 
@@ -76,7 +76,7 @@ def user_choice(dictionary):
     elif string in ('выход', 'выйти', 'quit', 'й', 'q', 'exit', 'авада кедавра'):
         print("\nСпасибо за внимание.")
         return 0
-    print('Очень жаль, но ничего не понятно. Попробуйте ещё разок.')
+    print('Очень жаль, но ничего непонятно. Попробуйте ещё разок.')
     return 666
 
 
