@@ -8,9 +8,9 @@ import searching as sc
 def main():
     locale.setlocale(locale.LC_ALL, '')
 
-    quit_code = 1
+    quit_flag = True
     notes_db = fh.read_notes()
-    while (quit_code != 0):
+    while quit_flag:
         string = input(
             '\nВведите команду. Например слово "справка": ').strip().lower()
         if string in ('справка', 'помощь', 'wtf', 'help', 'h', '?'):
@@ -27,7 +27,7 @@ def main():
             notes_db = ui.delete_note(notes_db)
         elif string in ('выход', 'выйти', 'quit', 'й', 'q', 'exit', 'авада кедавра'):
             print("\nРабота завершена.")
-            quit_code = 0
+            quit_flag = False
         else:
             print('\nОчень жаль, но ничего непонятно. Попробуйте ещё раз.')
     fh.store_notes(notes_db)
